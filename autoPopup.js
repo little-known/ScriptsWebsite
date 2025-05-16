@@ -9,7 +9,7 @@ function updatePopupClosedValue() {
 if (!localStorage.getItem('popupClosed')) {
     setTimeout(() => {
         autoPopup.classList.add('active');
-    }, 3000);
+    }, 30000);
 }
 
 function closeAutoPopup() {
