@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+/* Меню */
+.navbar {
+    background: #1a1a1a;
+    padding: 0.75rem;
+    transition: all 0.2s ease;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar.fixed {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #bbb;
+}
+
+/* Секции */
+.section {
+    height: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    gap: 1.5rem;
+}
+
+.section-content {
+    max-width: 700px;
+    width: 100%;
+}
+
+.section h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Фоновые градиенты */
+#home {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6b7280 0%, #1e3a8a 100%);
+    color: #fff;
+}
+
+#gallery {
+    background: linear-gradient(135deg, #7dd3fc 0%, #1e40af 100%);
+    color: #fff;
+}
+
+#contact {
+    background: linear-gradient(135deg, #34d399 0%, #065f46 100%);
+    color: #fff;
+}
+
+#countdown {
+    background: linear-gradient(135deg, #f9a8d4 0%, #831843 100%);
+    color: #fff;
+}
+
+#popup {
+    background: linear-gradient(135deg, #fb923c 0%, #7c2d12 100%);
+    color: #fff;
+}
+
+#animation {
+    background: linear-gradient(135deg, #a5b4fc 0%, #312e81 100%);
+    color: #fff;
+}
+
+#header {
+    background: linear-gradient(135deg, #facc15 0%, #b91c1c 100%);
+    color: #fff;
+}
+
+/* Эмодзи */
+.emoji {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.2;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.75rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Попап галереи */
+.gallery-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-popup.active {
+    display: flex;
+    opacity: 1;
+}
+
+.gallery-popup img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.gallery-popup .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
+.gallery-popup .prev { left: 0.75rem; }
+.gallery-popup .next { right: 0.75rem; }
+.gallery-popup .close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.gallery-popup .close:hover {
+    transform: scale(1.1);
+}
+
+/* Форма попап */
+.form-popup .close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.form-popup .close:hover {
+    transform: scale(1.1);
+}
+
+.form-popup input,
+.form-popup textarea {
+    width: 100%;
+    margin: 0.4rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.form-popup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-popup button {
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-popup button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-popup button.sending {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    cursor: wait;
+}
+
+.form-popup button.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    cursor: default;
+}
+
+.form-popup button:disabled {
+    opacity: 0.6;
+}
+
+/* Авто-попап */
+.auto-popup {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    min-width: 300px;
+}
+.auto-popup p {
+    margin: 10px;
+}
+
+.auto-popup.active {
+    display: block;
+    opacity: 1;
+}
+
+.auto-popup .close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.auto-popup .close:hover {
+    transform: scale(1.1);
+}
+
+.auto-popup p {
+    font-size: 1.2rem;
+}
+
+/* Таймер */
+.timer {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 1.5rem 0;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+/* SVG анимация */
+.svg-animation {
+    margin: 1.5rem 0;
+    cursor: pointer;
+    width: 200px;
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Код */
+.code-highlight {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.section-content {
+    z-index: 999;
+}
+
+.footer {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.2rem;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 4rem;
+    font-size: 2rem;
+    color: #fff;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(10px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+}
+
+.form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.form-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-popup form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(0.9);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.form-popup.active form {
+    transform: scale(1);
+    opacity: 1;
+}

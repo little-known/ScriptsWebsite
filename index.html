@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скрипты</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#header">Меню</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#contact">Форма</a></li>
+            <li><a href="#countdown">Таймер</a></li>
+            <li><a href="#popup">Попап</a></li>
+            <li><a href="#animation">Анимация</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="section-content">
+            <h1>Добро пожаловать!</h1>
+            <p>Это одностраничный сайт, который показывает некоторые возможности верстки с JavaScript</p>
+        </div>
+        <div class="scroll-arrow">↓</div>
+    </section>
+
+    <section id="header" class="section">
+        <div class="section-content">
+            <h2>Фиксированное меню</h2>
+            <p>Меню становится фиксированным (используется <code class="code-highlight">position: fixed</code>) при
+                прокрутке страницы ниже второго экрана. Это позволяет сохранить навигацию всегда доступной.</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="section-content">
+            <h2>Галерея</h2>
+            <div class="gallery">
+                <img src="https://picsum.photos/600/400?random=1" alt="Image 1">
+                <img src="https://picsum.photos/600/400?random=2" alt="Image 2">
+                <img src="https://picsum.photos/600/400?random=3" alt="Image 3">
+                <img src="https://picsum.photos/600/400?random=4" alt="Image 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-content">
+            <h2>Обратная связь</h2>
+            <p>Отправьте запрос через форму, указав адрес API и текст запроса.</p>
+            <button onclick="openFormPopup()">Открыть форму</button>
+        </div>
+    </section>
+
+    <section id="countdown" class="section">
+        <div class="section-content">
+            <h2>Обратный отсчёт до получения диплома бакалавра МФТИ</h2>
+            <div class="timer" id="timer"></div>
+            <p>Таймер показывает, сколько осталось до 30 июня 2028 года.</p>
+        </div>
+    </section>
+
+    <section id="popup" class="section">
+        <div class="section-content">
+            <h2>Автоматический попап</h2>
+            <p>Попап появляется через 30 секунд, если не был закрыт ранее. Состояние сохраняется в <code
+                    class="code-highlight">localStorage</code> под ключом <code
+                    class="code-highlight">popupClosed</code>.</p>
+            <p>Текущее значение: <span id="popupClosedValue"></span></p>
+            <button onclick="resetPopupClosed()">Сбросить состояние попапа</button>
+        </div>
+    </section>
+
+    <section id="animation" class="section">
+        <div class="section-content">
+            <h2>SVG Анимация</h2>
+            <svg class="svg-animation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" id="Capa_1" viewBox="0 0 58 58" xml:space="preserve">
+                <path style="fill:#EFE5CA;"
+                    d="M50.857,48H7.143C5.407,48,4,46.593,4,44.857V3.143C4,1.407,5.407,0,7.143,0h43.715 C52.593,0,54,1.407,54,3.143v41.715C54,46.593,52.593,48,50.857,48z" />
+                <rect x="8" y="48" style="fill:#CDBB8B;" width="42" height="10" />
+                <rect x="36" y="51" style="fill:#9D8F60;" width="11" height="4" />
+                <rect x="43" y="51" style="fill:#E9E2C8;" width="4" height="4" />
+                <path class="screen" style="fill:#21C6F7;"
+                    d="M46.128,34H11.872C9.734,34,8,32.266,8,30.128V8.872C8,6.734,9.734,5,11.872,5h34.255 C48.266,5,50,6.734,50,8.872v21.255C50,32.266,48.266,34,46.128,34z" />
+                <g>
+                    <path style="fill:#FFFFFF;"
+                        d="M13,15c0.256,0,0.512-0.098,0.707-0.293l4-4c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0 l-4,4c-0.391,0.391-0.391,1.023,0,1.414C12.488,14.902,12.744,15,13,15z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M13,20c0.256,0,0.512-0.098,0.707-0.293l2-2c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0 l-2,2c-0.391, Nk0.391-0.391,1.023,0,1.414C12.488,19.902,12.744,20,13,20z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M16.29,14.29C16.11,14.48,16,14.74,16,15c0,0.26,0.11,0.52,0.29,0.71C16.48,15.89,16.74,16,17,16 c0.26,0,0.52-0.11,0.71-0.29C17.89,15.52,18,15.27,18,15s-0.11-0.52-0.29-0.71C17.34,13.92,16.66,13.92,16.29,14.29z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M18.293,13.707C18.488,13.902,18.744,14,19,14s0.512-0.098,0.707-0.293l3-3 c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-3,3C17.902,12.684,17.902,13.316,18.293,13.707z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M21.293,14.293l-9,9c-0.391,0.391-0.391,1.023,0,1.414C12.488,24.902,12.744,25,13,25 s0.512-0.098,0.707-0.293l9-9c0.391-0.391,0.391-1.023,0-1.414S21.684,13.902,21.293,14.293z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M23.29,12.29C23.11,12.48,23,12.74,23,13c0,0.26,0.11,0.52,0.29,0.71C23.48,13.89,23.74,14,24,14 c0.26,0,0.52-0.11,0.71-0.29C24.89,13.52,25,13.26,25,13c0-0.26-0.11-0.52-0.29-0.71C24.34,11.92,23.67,11.92,23.29,12.29z" />
+                    <path style="fill:#FFFFFF;"
+                        d="M27.707,9.293c-0.391-0.391-1.023-0.391-1.414,0l-1,1c-0.391,0.391-0.391,1.023,0,1.414 C25.488,11.902,25.744,12,26,12s0.512-0.098,0.707-0.293l1-1C28.098,10.316,28.098,9.684,27.707,9.293z" />
+                </g>
+                <line style="fill:none;stroke:#38454F;stroke-width:2;stroke-miterlimit:10;" x1="30" y1="41" x2="41"
+                    y2="41" />
+                <line style="fill:none;stroke:#38454F;stroke-width:2;stroke-miterlimit:10;" x1="47" y1="41" x2="50"
+                    y2="41" />
+                <rect x="40" y="39" style="fill:#546A79;stroke:#38454F;stroke-width:2;stroke-miterlimit:10;" width="7"
+                    height="4" />
+                <rect class="sticker" x="9" y="43.987" style="fill:#1081E0;" width="7" height="2.013" />
+                <rect class="sticker" x="9" y="41.987" style="fill:#D75A4A;" width="7" height="2.013" />
+                <rect class="sticker" x="9" y="40" style="fill:#ED8A19;" width="7" height="2.013" />
+                <rect class="sticker" x="9" y="38" style="fill:#A4E869;" width="7" height="2.013" />
+            </svg>
+            <p>Компьютер анимируется при клике и движении мыши.</p>
+        </div>
+    </section>
+
+
+    <div class="gallery-popup">
+        <span class="close" onclick="closeGalleryPopup()">×</span>
+        <span class="arrow prev" onclick="changeImage(-1)">❮</span>
+        <img src="" alt="Popup Image">
+        <span class="arrow next" onclick="changeImage(1)">❯</span>
+    </div>
+
+    <div class="form-popup">
+        <span class="close" onclick="closeFormPopup()">×</span>
+        <form id="contactForm">
+            <h2>Обратная связь</h2>
+            <input type="text" id="apiUrl" placeholder="Адрес API (например, https://api.example.com)" required>
+            <input type="text" id="phone" placeholder="Телефон (например, +79991234567)" required>
+            <input type="text" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Введите сообщение (только русский или английский текст)" required></textarea>
+            <button type="submit" id="submitBtn">Отправить</button>
+        </form>
+    </div>
+
+    <div class="auto-popup">
+        <span class="close" onclick="closeAutoPopup()">×</span>
+        <p>Это автоматическое сообщение! Оставайтесь с нами!</p>
+    </div>
+
+    <footer class="footer">
+        <p>2025© Danil Ekushenko</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="gallery.js"></script>
+    <script src="form.js"></script>
+    <script src="autoPopup.js"></script>
+    <script src="countdown.js"></script>
+    <script src="svgAnimation.js"></script>
+    <script src="parallax.js"></script>
+</body>
+
+</html>
